@@ -16,3 +16,11 @@ Route::get('/', 'IndexController@index')->name('index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([
+  'namespace' => 'Admin',
+  'prefix' => 'admin',
+  'as' => 'admin.'
+], function () {
+    Route::resource('categories', 'CategoryController');
+});
